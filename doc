@@ -1,0 +1,38 @@
+Game of Brian's
+
+jede Zelle hat:
+
+1 String als Genetischen Code (auf erweiterter Brainfuck-Syntax) (alias BNA)
+20 Zellen mit der Größe eines signed chars (als Datenfeld für Brainfuck)
+1 ZellenUmgebungsPointer ZUP (der einen Wert von 0 bis 7 annehmen kann)
+
+dieser ZUP zeigt auf eins der Umliegenden "Game of Life" Felder
+0 oben
+1 links unten
+2 rechts oben
+3 unten
+4 links oben
+5 rechts unten
+6 links
+7 rechts
+
+die Brainfuck Syntax wird um folgendes erweitert:
+
+{ inkremntiert ZUP
+} dekrementeirt ZUP
+
+. Kopiert die Zelle fehlerbehaftet nach ZUP
+  hierbei wird die Zelle komplett dupliziert und durch einen speziellen 
+  Mutationsalgorithmus die BNA verändert
+  Befindet sich an der Stelle des ZUP eine Lebende Zelle, passiert nichts
+
+, Ließt ein, ob sich am ZUP eine Lebende Zelle Befindet und setzt die Aktuelle Zelle in diesem Fall auf 0
+
+der Schleifenalgorithmus [ ] bricht nicht nur bei einer 0, sondern auch in 5% aller Fälle ab!
+
+
+Ferner gilt die Game of Life Regel: hat eine Zelle mehr als 3 Nachbarn stirbt sie!
+
+ein Mutationsalorithmus:
+zu 20% wird an einer beliebigen Stelle ein Zeichen entfernt
+zu 20% wird an einer beliebigen Stelle ein beliebiges Zeichen eingefügt
